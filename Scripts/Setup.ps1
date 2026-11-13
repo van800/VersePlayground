@@ -15,7 +15,8 @@ Setup.bat in the repository root runs this script. It:
   5. Downloads only the binary dependencies listed for it.
   6. Applies the engine patches in Patches/ that the version needs, and the optional ones you choose.
   7. Builds verse.exe and runs Samples/HelloWorld/HelloWorld.verse to confirm that it works.
-  8. Offers to install the Verse Playground extension into VS Code.
+  8. Writes the Verse project that VersePlayground-Verse.code-workspace uses (Scripts/Update-VerseProject.ps1).
+  9. Offers to install the Verse Playground extension into VS Code.
 
 Your GitHub account must have access to the Unreal Engine repository. Git asks you to sign in the first time.
 
@@ -864,6 +865,8 @@ $versePath = Join-Path $InstallDir 'Engine\Binaries\Win64\verse.exe'
 Test-VerseExecutable -VersePath $versePath
 Save-LocalState -EngineVersion $engineVersion -VersePath $versePath -OptionalPatches $optionalPatches `
     -PatchResult $patchResult
+Write-Step 'Writing the Verse project for VersePlayground-Verse.code-workspace'
+& (Join-Path $PSScriptRoot 'Update-VerseProject.ps1') -EngineDir $InstallDir
 Install-VSCodeExtension
 
 Write-Step 'Done'

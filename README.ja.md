@@ -115,6 +115,22 @@ VS Code の言語サーバーはフォルダ内のファイルをまとめてチ
 してください。有効なままだとサーバーが 2 つ動き、すべてのエラーが 2 回表示されます（有効なときは Verse Playground が知らせます）。
 UEFN が無くても、表のそれ以外の機能は使えます。
 
+## ほかの IDE（Rider）
+
+`VersePlayground-Verse.code-workspace` は、サンプルと Verse のプロジェクト（`Intermediate/vproject/VersePlayground.vproject`）を
+一緒に開きます。このプロジェクトは `Samples/` の下のフォルダを 1 つずつパッケージにし、自分のエンジンのチェックアウトの
+`/Verse.org` のパッケージと並べたもので、`verse.exe` がファイルをコンパイルするときと同じパッケージです。Rider で
+`.code-workspace` ファイルを開くと、Rider の Verse のコード解析が使えます。
+
+Setup は `verse.exe` をビルドした後にこのプロジェクトを書き出します。`Samples/` の下に `.verse` ファイルのフォルダを
+足したり消したりしたら、次で書き出し直します。
+
+```powershell
+.\Scripts\Update-VerseProject.ps1
+```
+
+`verse.exe` はこのプロジェクトを読みません。サンプルがどうコンパイルされるかを IDE に伝えるだけのものです。
+
 ## バージョンの管理
 
 `Versions/` には、エンジンのコミットごとに、取得するディレクトリの一覧とバイナリ依存の一覧が入っています。

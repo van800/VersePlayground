@@ -120,6 +120,22 @@ Playground uses that server with the Verse version of your engine checkout. Disa
 workspace, or both servers run and every error is shown twice; Verse Playground tells you when it is enabled. Without
 UEFN, everything else in the table still works.
 
+## Other IDEs (Rider)
+
+`VersePlayground-Verse.code-workspace` opens the samples together with a Verse project
+(`Intermediate/vproject/VersePlayground.vproject`) that lists each folder under `Samples/` as its own package next to
+the `/Verse.org` packages of your engine checkout, the same packages `verse.exe` compiles a file against. Open the
+`.code-workspace` file in Rider to get its Verse code analysis.
+
+Setup writes the project after it builds `verse.exe`. After adding or removing a folder of `.verse` files under
+`Samples/`, write it again with:
+
+```powershell
+.\Scripts\Update-VerseProject.ps1
+```
+
+`verse.exe` does not read this project; it only tells IDEs how the samples are compiled.
+
 ## Versions
 
 `Versions/` holds, for each engine commit, the list of directories to fetch and the list of binary dependencies.
