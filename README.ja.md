@@ -143,6 +143,22 @@ Unreal Engine のソースにも含まれていません。自分のエンジン
 もう一度尋ねられ、「Verse: Forget Allowed Engines」で許可をすべて消せます。実行とデバッグには影響しません。信頼していない
 ワークスペース（制限モード）では、言語サーバーは起動しません。
 
+## ほかの IDE（Rider）
+
+`VersePlayground-Verse.code-workspace` は、サンプルと Verse のプロジェクト（`Intermediate/vproject/VersePlayground.vproject`）を
+一緒に開きます。このプロジェクトは `Samples/` の下のフォルダを 1 つずつパッケージにし、自分のエンジンのチェックアウトの
+`/Verse.org` のパッケージと並べたもので、`verse.exe` がファイルをコンパイルするときと同じパッケージです。Rider で
+`.code-workspace` ファイルを開くと、Rider の Verse のコード解析が使えます。
+
+Setup は `verse.exe` をビルドした後にこのプロジェクトを書き出します。`Samples/` の下に `.verse` ファイルのフォルダを
+足したり消したりしたら、次で書き出し直します。
+
+```powershell
+.\Scripts\Update-VerseProject.ps1
+```
+
+`verse.exe` はこのプロジェクトを読みません。サンプルがどうコンパイルされるかを IDE に伝えるだけのものです。
+
 ## バージョンの管理
 
 `Versions/` には、エンジンのコミットごとに、取得するディレクトリの一覧とバイナリ依存の一覧が入っています。

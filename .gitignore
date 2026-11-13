@@ -4,6 +4,9 @@
 # Location of verse.exe on this machine, written by Setup.bat
 /VersePlayground.local.json
 
+# Verse project for VersePlayground-Verse.code-workspace, written by Scripts/Update-VerseProject.ps1
+/Intermediate/
+
 # VS Code extension build output. verse-playground.vsix itself is committed so that users need no Node.js.
 /Extension/node_modules/
 /Extension/dist/
